@@ -1,56 +1,3 @@
-###cloud vars
-
-variable "cloud_id" {
-  type        = string
-  description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"
-}
-
-variable "folder_id" {
-  type        = string
-  description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
-}
-
-variable "default_zone" {
-  type        = string
-  default     = "ru-central1-a"
-  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
-}
-
-variable "default_cidr" {
-  type        = list(string)
-  default     = ["10.0.1.0/24"]
-  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
-}
-
-variable "vpc_name" {
-  type        = string
-  default     = "develop"
-  description = "VPC network & subnet name"
-}
-
-###ssh vars
-
-variable "vms_ssh_root_key" {
-  type        = string
-  description = "ssh-keygen -t ed25519"
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBUKQk2shb+S5/sH4jzjyAm96K0B00JXRjkrFASJyiN netol"
-}
-
-# Новые переменные для интерполяции
-variable "project_name" {
-  type        = string
-  default     = "netology"
-  description = "Project name prefix"
-}
-
-variable "environment" {
-  type        = string
-  default     = "develop"
-  description = "Environment name"
-}
-
-# Закомментированные старые переменные из vms_platform.tf
-/*
 variable "vm_web_name" {
   type        = string
   default     = "netology-develop-platform-web"
@@ -105,6 +52,8 @@ variable "vm_web_image_family" {
   description = "Image family for web VM"
 }
 
+### VM db variables
+
 variable "vm_db_name" {
   type        = string
   default     = "netology-develop-platform-db"
@@ -158,4 +107,3 @@ variable "vm_db_image_family" {
   default     = "ubuntu-2004-lts"
   description = "Image family for db VM"
 }
-*/
